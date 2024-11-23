@@ -11,7 +11,7 @@ public class BluetoothQuestManager : MonoBehaviour
     
     public TextMeshProUGUI deviceAdd;
     public TextMeshProUGUI dataToSend;
-    public TextMeshProUGUI receivedData;
+    public Text receivedData;
     public GameObject devicesListContainer;
     public GameObject deviceMACText;
     private bool isConnected;
@@ -118,7 +118,7 @@ public class BluetoothQuestManager : MonoBehaviour
         foreach (var d in data)
         {
             GameObject newDevice = deviceMACText;
-            newDevice.GetComponent<TextMeshProUGUI>().text = d;
+            newDevice.GetComponent<Text>().text = d;
             Instantiate(newDevice, devicesListContainer.transform);
         }
     }
