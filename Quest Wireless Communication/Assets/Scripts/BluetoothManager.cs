@@ -12,7 +12,7 @@ public class BluetoothManager : MonoBehaviour
     public GameObject devicesListContainer;
     public GameObject deviceMACText;
     private bool isConnected;
-
+    
     private static AndroidJavaClass unity3dbluetoothplugin;
     private static AndroidJavaObject BluetoothConnector;
     // Start is called before the first frame update
@@ -25,6 +25,7 @@ public class BluetoothManager : MonoBehaviour
     // creating an instance of the bluetooth class from the plugin 
     public void InitBluetooth()
     {
+        Debug.Log("Current Platform: " + Application.platform);
         if (Application.platform != RuntimePlatform.Android)
             return;
 
