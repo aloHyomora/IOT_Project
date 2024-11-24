@@ -73,7 +73,7 @@ public class Reporter : MonoBehaviour
 		Log       = LogType.Log,
 		Warning   = LogType.Warning,
 	}
-
+	
 	public class Sample
 	{
 		public float time;

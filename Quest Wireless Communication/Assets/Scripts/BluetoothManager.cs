@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine.Android;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,10 @@ public class BluetoothManager : MonoBehaviour
     
     private static AndroidJavaClass unity3dbluetoothplugin;
     private static AndroidJavaObject BluetoothConnector;
+    
+    public TextMeshProUGUI debugText;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +73,7 @@ public class BluetoothManager : MonoBehaviour
         }
 
         BluetoothConnector.CallStatic("StartScanDevices");
+        debugText.text += "StartScanDevices\n";
     }
 
     // Stop device scan
@@ -77,12 +83,14 @@ public class BluetoothManager : MonoBehaviour
             return;
 
         BluetoothConnector.CallStatic("StopScanDevices");
+        debugText.text += "StopScanDevices\n";
     }
 
     // This function will be called by Java class to update the scan status,
     // DO NOT CHANGE ITS NAME OR IT WILL NOT BE FOUND BY THE JAVA CLASS
     public void ScanStatus(string status)
     {
+        debugText.text += $"scan?: {status}\n";
         Toast("Scan Status: " + status);
     }
 
@@ -118,6 +126,7 @@ public class BluetoothManager : MonoBehaviour
             newDevice.GetComponent<Text>().text = d;
             Instantiate(newDevice, devicesListContainer.transform);
         }
+        debugText.text += "GetPairedDevices\n";
     }
 
     // Start BT connect using device MAC address "deviceAdd"
@@ -125,8 +134,10 @@ public class BluetoothManager : MonoBehaviour
     {
         if (Application.platform != RuntimePlatform.Android)
             return;
+        debugText.text += "StartConnection1\n";
 
         BluetoothConnector.CallStatic("StartConnection", deviceAdd.text.ToString().ToUpper());
+        debugText.text += "StartConnection2\n";
     }
 
     // Stop BT connetion
@@ -136,13 +147,17 @@ public class BluetoothManager : MonoBehaviour
             return;
 
         if (isConnected)
+        {
             BluetoothConnector.CallStatic("StopConnection");
+            debugText.text += "StopConnection\n";
+        }
     }
 
     // This function will be called by Java class to update BT connection status,
     // DO NOT CHANGE ITS NAME OR IT WILL NOT BE FOUND BY THE JAVA CLASS
     public void ConnectionStatus(string status)
     {
+        debugText.text += $"connect?: {status}\n";
         Toast("Connection Status: " + status);
         isConnected = status == "connected";
     }
@@ -162,7 +177,10 @@ public class BluetoothManager : MonoBehaviour
             return;
 
         if (isConnected)
+        {
             BluetoothConnector.CallStatic("WriteData", dataToSend.text.ToString());
+            debugText.text += "WriteData\n";
+        }
     }
 
     // This function will be called by Java class to send Log messages,
