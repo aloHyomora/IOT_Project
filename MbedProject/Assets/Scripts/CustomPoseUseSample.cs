@@ -6,6 +6,7 @@ using TMPro;
     {
         [SerializeField, Interface(typeof(IHmd))]
         private UnityEngine.Object _hmd;
+
         private IHmd Hmd { get; set; }
 
         [SerializeField]

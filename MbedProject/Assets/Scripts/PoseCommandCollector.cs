@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class PoseCommandCollector : MonoBehaviour
 {
     public static PoseCommandCollector Instance { get; private set; }
+    public SerialController serialController;
+
     private void Awake()
     {
         if (Instance == null)
@@ -136,7 +138,8 @@ public class PoseCommandCollector : MonoBehaviour
 
     private void Send(string cmd)
     {
-        Debug.Log("📤 하드웨어 전송: " + cmd);
+        Debug.Log("하드웨어 전송: " + cmd);
         // 시리얼 전송 또는 네트워크 송신 로직
+        serialController.SendSerialMessage(cmd);
     }
 }
