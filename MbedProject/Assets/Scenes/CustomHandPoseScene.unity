@@ -7851,6 +7851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68519852210c91a41b83d426e83b6ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serialController: {fileID: 945615418}
 --- !u!1 &530300285
 GameObject:
   m_ObjectHideFlags: 0
