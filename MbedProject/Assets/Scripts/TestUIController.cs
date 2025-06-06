@@ -11,7 +11,7 @@ public class TestUIController : MonoBehaviour
     public GameObject sandTimer;
     
     [Header("Message")]
-    public TextMeshProUGUI message;
+    public GameObject message;
 
     [Header("Configs")] 
     public float duration;
@@ -40,5 +40,6 @@ public class TestUIController : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
         targetGameObject.SetActive(true);
+        message.SetActive(true);
     }
 }

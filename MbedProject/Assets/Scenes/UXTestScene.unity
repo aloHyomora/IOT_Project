@@ -743,7 +743,7 @@ MonoBehaviour:
   messageType: 0
   videoPlayer: {fileID: 36831980}
   videoClip1: {fileID: 32900000, guid: 7cf8eed253f81cb47a7f22f4c5ad99a7, type: 3}
-  videoClip2: {fileID: 0}
+  videoClip2: {fileID: 32900000, guid: 7cf8eed253f81cb47a7f22f4c5ad99a7, type: 3}
 --- !u!4 &225997983
 Transform:
   m_ObjectHideFlags: 0
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   circleSlider: {fileID: 1774166386}
   text: {fileID: 1464130416}
   sandTimer: {fileID: 113815985}
-  message: {fileID: 1879431620}
+  message: {fileID: 1879431618}
   duration: 60
 --- !u!1 &581807375
 GameObject:
@@ -2122,13 +2122,14 @@ GameObject:
   - component: {fileID: 1879431619}
   - component: {fileID: 1879431621}
   - component: {fileID: 1879431620}
+  - component: {fileID: 1879431622}
   m_Layer: 5
   m_Name: Message Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1879431619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2143,10 +2144,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 467212690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 200}
-  m_SizeDelta: {x: 2000, y: 200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1879431620
 MonoBehaviour:
@@ -2172,8 +2173,8 @@ MonoBehaviour:
     \uAC10\uC131 \uBD84\uC0B0\uD615 \uBA54\uC2DC\uC9C0, \uB2E8\uC21C \uC0C1\uD0DC\uD615
     \uBA54\uC2DC\uC9C0)"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: cf118d650f603e34eb1c96c2d5946d57, type: 2}
+  m_sharedMaterial: {fileID: -4066183559885330090, guid: cf118d650f603e34eb1c96c2d5946d57, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2204,8 +2205,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2249,6 +2250,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879431618}
   m_CullTransparentMesh: 1
+--- !u!114 &1879431622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879431618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fd97de02af7a33458f68bcc02ae2814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UXTestManager: {fileID: 225997982}
+  messageText: {fileID: 1879431620}
+  taskFocused: "\uB3D9\uC601\uC0C1\uC744 \uBD88\uB7EC\uC624\uACE0 \uC788\uC2B5\uB2C8\uB2E4.
+    \uC7A0\uC2DC\uB9CC \uAE30\uB2E4\uB824\uC8FC\uC138\uC694."
+  emotionDistracting: "\uC624\uB298\uB3C4 \uC88B\uC740 \uD558\uB8E8 \uB418\uC138\uC694.
+    \uC601\uC0C1 \uACE7 \uB098\uC635\uB2C8\uB2E4!"
+  plainStatus: "\uC9C4\uD589 \uC911\uC785\uB2C8\uB2E4."
 --- !u!1 &2022695465
 GameObject:
   m_ObjectHideFlags: 0
