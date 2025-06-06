@@ -1,17 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-public class SandClock : MonoBehaviour
+public class SandClock : MonoBehaviour, IPointerClickHandler
 {
 	public TestUIController testUIController;
 	[SerializeField] Image fillTopImage;
 	[SerializeField] Image fillBottomImage;
 	[SerializeField] Text roundText;
 	[SerializeField] Image sandDotsImage;
+	[SerializeField] Image BottomMaskImage;
 	[SerializeField] RectTransform sandPyramidRect;
-
+	Color originalColor;
 	//Events
 	[HideInInspector] public UnityAction onAllRoundsCompleted;
 	[HideInInspector] public UnityAction<int> onRoundStart;
@@ -30,7 +33,7 @@ public class SandClock : MonoBehaviour
 		SetRoundText (totalRounds);
 		defaultSandPyramidYPos = sandPyramidRect.anchoredPosition.y;
 		sandDotsImage.DOFade (0f, 0f);
-		
+		originalColor = fillTopImage.color;
 		Begin();
 	}
 
@@ -114,5 +117,51 @@ public class SandClock : MonoBehaviour
 		transform.rotation = Quaternion.Euler (Vector3.zero);
 		fillTopImage.fillAmount = 1f;
 		fillBottomImage.fillAmount = 0f;
+	}
+	
+	
+	public void OnPointerClick(PointerEventData eventData)
+	{
+		HandleClickReaction();
+	}
+    
+	private void HandleClickReaction()
+	{
+		switch (testUIController.UXTestManager.reactionType)
+		{
+			case ReactionType.반응없음:
+				break;
+			case ReactionType.클릭하면진동:
+				transform.DOShakePosition(0.3f, 10f, 20, 90, false, true);
+				break;
+			case ReactionType.클릭하면색변화:
+				if (fillTopImage != null)
+				{
+					fillTopImage.DOColor(Color.red, 0.2f)
+						.OnComplete(() =>
+							fillTopImage.DOColor(originalColor, 0.2f));
+				}
+				if (fillBottomImage != null)
+				{
+					fillBottomImage.DOColor(Color.red, 0.2f)
+						.OnComplete(() =>
+							fillBottomImage.DOColor(originalColor, 0.2f));
+				}
+				if (sandDotsImage != null)
+				{
+					sandDotsImage.DOColor(Color.red, 0.2f)
+						.OnComplete(() =>
+							sandDotsImage.DOColor(originalColor, 0.2f));
+				}
+				if (BottomMaskImage != null)
+				{
+					BottomMaskImage.DOColor(Color.red, 0.2f)
+						.OnComplete(() =>
+							BottomMaskImage.DOColor(originalColor, 0.2f));
+				}
+				break;
+			default:
+				throw new ArgumentOutOfRangeException();
+		}
 	}
 }

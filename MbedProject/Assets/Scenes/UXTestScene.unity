@@ -399,6 +399,7 @@ MonoBehaviour:
   fillBottomImage: {fileID: 1404240612}
   roundText: {fileID: 1367740789}
   sandDotsImage: {fileID: 1793814759}
+  BottomMaskImage: {fileID: 185065805}
   sandPyramidRect: {fileID: 185065804}
   roundDuration: 10
   totalRounds: 1
@@ -739,7 +740,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testUIGameObject: {fileID: 467212689}
   uiType: 2
-  reactionType: 0
+  reactionType: 2
   messageType: 0
   videoPlayer: {fileID: 36831980}
   videoClip1: {fileID: 32900000, guid: 7cf8eed253f81cb47a7f22f4c5ad99a7, type: 3}
@@ -809,7 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3679245, g: 0.28809184, b: 0.28809184, a: 1}
+  m_Color: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1960,6 +1961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testUIController: {fileID: 467212691}
   slider: {fileID: 1774166388}
+  targetImage: {fileID: 2022695467}
 --- !u!1 &1793814757
 GameObject:
   m_ObjectHideFlags: 0
