@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class SandClock : MonoBehaviour
 {
+	public TestUIController testUIController;
 	[SerializeField] Image fillTopImage;
 	[SerializeField] Image fillBottomImage;
 	[SerializeField] Text roundText;
@@ -23,11 +24,14 @@ public class SandClock : MonoBehaviour
 	float defaultSandPyramidYPos;
 	int currentRound = 0;
 
-	void Awake ()
+	void OnEnable ()
 	{
+		roundDuration = testUIController.duration;
 		SetRoundText (totalRounds);
 		defaultSandPyramidYPos = sandPyramidRect.anchoredPosition.y;
 		sandDotsImage.DOFade (0f, 0f);
+		
+		Begin();
 	}
 
 	public void Begin ()
@@ -67,6 +71,8 @@ public class SandClock : MonoBehaviour
 
 	void OnRoundTimeComplete ()
 	{
+		// TODO: 다음 영상 재생 코드 추가
+		
 		//round end event
 		if (onRoundEnd != null)
 			onRoundEnd.Invoke (currentRound);

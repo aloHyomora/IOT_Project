@@ -40,6 +40,5 @@ public class TestUIController : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
         targetGameObject.SetActive(true);
-                
     }
 }

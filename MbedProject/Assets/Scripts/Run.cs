@@ -6,11 +6,11 @@ public class Run : MonoBehaviour
 
 	void Start ()
 	{
-		clock.onRoundStart += OnRoundStart;
+		/*clock.onRoundStart += OnRoundStart;
 		clock.onRoundEnd += OnRoundEnd;
 		clock.onAllRoundsCompleted += OnAllRoundsCompleted;
 
-		clock.Begin ();
+		clock.Begin ();*/
 	}
 
 	void OnRoundStart (int round)
@@ -28,10 +28,10 @@ public class Run : MonoBehaviour
 		Debug.Log ("......Time is over...........");
 	}
 
-	void OnDestroy ()
+	/*void OnDestroy ()
 	{
 		clock.onRoundStart -= OnRoundStart;
 		clock.onRoundEnd -= OnRoundEnd;
 		clock.onAllRoundsCompleted -= OnAllRoundsCompleted;
-	}
+	}*/
 }
