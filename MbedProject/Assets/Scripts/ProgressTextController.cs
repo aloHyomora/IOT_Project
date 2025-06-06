@@ -51,7 +51,7 @@ public class ProgressTextController : MonoBehaviour, IPointerClickHandler
             case ReactionType.반응없음:
                 break;
             case ReactionType.클릭하면진동:
-                transform.DOShakePosition(0.3f, 10f, 20, 90, false, true);
+                transform.DOShakePosition(0.3f, 20f, 20, 90, false, true);
                 break;
             case ReactionType.클릭하면색변화:
                 if (progressText != null)

@@ -41,5 +41,14 @@ public class TestUIController : MonoBehaviour
         }
         targetGameObject.SetActive(true);
         message.SetActive(true);
+        
+        // duration 뒤에 GameObject 비활성화
+        DG.Tweening.DOVirtual.DelayedCall(duration, () =>
+        {
+            targetGameObject.SetActive(false);
+            message.SetActive(false);
+            UXTestManager.PlayVideo2();
+            gameObject.SetActive(false);
+        });
     }
 }
