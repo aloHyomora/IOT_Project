@@ -16,7 +16,7 @@ public class UXTestManager : MonoBehaviour
     public VideoClip videoClip2;
     private void Awake()
     {
-        videoPlayer.time = videoPlayer.clip.length -  5f;
+        videoPlayer.time = videoPlayer.clip.length -  140f;
         videoPlayer.clip = videoClip1;
         videoPlayer.Play();
     }
