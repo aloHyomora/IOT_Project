@@ -14,9 +14,11 @@ public class UXTestManager : MonoBehaviour
     public VideoPlayer videoPlayer;
     public VideoClip videoClip1;
     public VideoClip videoClip2;
+    public DateTime startTime, endTime;
     private void Awake()
     {
-        videoPlayer.time = videoPlayer.clip.length -  140f;
+        startTime = DateTime.Now;
+        videoPlayer.time = videoPlayer.clip.length -  3f;
         videoPlayer.clip = videoClip1;
         videoPlayer.Play();
     }
@@ -45,6 +47,11 @@ public class UXTestManager : MonoBehaviour
         videoPlayer.Play();
     }
 
+    private void OnApplicationQuit()
+    {
+        endTime = DateTime.Now;
+        Debug.Log($"startTime {startTime}, endTime {endTime}");
+    }
 }
 
 public enum UIType

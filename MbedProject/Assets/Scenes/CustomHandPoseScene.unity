@@ -17176,6 +17176,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5054831236823318282, guid: a823fe55a7107c04abd21f4ede9425b3, type: 3}
+      propertyPath: m_text
+      value: ON
+      objectReference: {fileID: 0}
+    - target: {fileID: 5054831236823318282, guid: a823fe55a7107c04abd21f4ede9425b3, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 5064440029279151759, guid: a823fe55a7107c04abd21f4ede9425b3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
